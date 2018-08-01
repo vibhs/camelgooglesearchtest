@@ -1,0 +1,150 @@
+INFO  key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs, cx=006692447265618499542:oqtlr1xtrve
+DEBUG Adding routes from builder: Routes: []
+DEBUG Starting service pool: org.apache.camel.impl.SharedProducerServicePool@40d21187
+INFO  Apache Camel 2.13.0 (CamelContext: camel-1) is starting
+DEBUG Using ClassResolver=org.apache.camel.impl.DefaultClassResolver@68bc42e, PackageScanClassResolver=org.apache.camel.impl.DefaultPackageScanClassResolver@41fcab5d, ApplicationContextClassLoader=java.net.URLClassLoader@719429b2
+INFO  JMX is enabled
+DEBUG Starting JMX agent on server: com.sun.jmx.mbeanserver.JmxMBeanServer@673c2a08
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=context,name="camel-1"
+DEBUG Added TimerListener: org.apache.camel.management.mbean.ManagedCamelContext@7ef3c7bb
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=services,name=DefaultTypeConverter
+DEBUG Found 3 packages with 15 @Converter classes to load
+DEBUG Loading file META-INF/services/org/apache/camel/TypeConverter to retrieve list of packages, from url: jar:file:/home/kevin/.m2/repository/org/apache/camel/camel-core/2.13.0/camel-core-2.13.0.jar!/META-INF/services/org/apache/camel/TypeConverter
+DEBUG Loading file META-INF/services/org/apache/camel/TypeConverter to retrieve list of packages, from url: jar:file:/home/kevin/.m2/repository/org/apache/camel/camel-xmljson/2.13.0/camel-xmljson-2.13.0.jar!/META-INF/services/org/apache/camel/TypeConverter
+DEBUG Loading file META-INF/services/org/apache/camel/TypeConverter to retrieve list of packages, from url: jar:file:/home/kevin/.m2/repository/org/apache/camel/camel-http/2.13.0/camel-http-2.13.0.jar!/META-INF/services/org/apache/camel/TypeConverter
+DEBUG Loaded 3 @Converter classes
+INFO  Loaded 185 type converters
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=services,name=EndpointRegistry
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=services,name=DefaultExecutorServiceManager
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=services,name=SharedProducerServicePool
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=services,name=DefaultInflightRepository
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=services,name=DefaultShutdownStrategy
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=services,name=DefaultPackageScanClassResolver
+DEBUG Using ComponentResolver: org.apache.camel.impl.DefaultComponentResolver@c9d8918 to resolve component with name: direct
+DEBUG Found component: direct in registry: null
+DEBUG Found component: direct via type: org.apache.camel.component.direct.DirectComponent via: META-INF/services/org/apache/camel/component/direct
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=components,name="direct"
+DEBUG Creating endpoint uri=[direct://start], path=[start]
+DEBUG direct://start converted to endpoint: Endpoint[direct://start] by component: org.apache.camel.component.direct.DirectComponent@44361cbb
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=endpoints,name="direct://start"
+DEBUG Initialize channel for target: 'SetHeader[search_term, {android}]'
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=tracer,name=BacklogTracer
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=tracer,name=BacklogDebugger
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=errorhandlers,name="DefaultErrorHandlerBuilder(ref:CamelDefaultErrorHandlerBuilder)"
+DEBUG Initialize channel for target: 'SetHeader[CamelHttpMethod, {GET}]'
+DEBUG Initialize channel for target: 'Log[XXX]'
+DEBUG Initialize channel for target: 'Log[${body}]'
+DEBUG Using ComponentResolver: org.apache.camel.impl.DefaultComponentResolver@c9d8918 to resolve component with name: https
+DEBUG Found component: https in registry: null
+DEBUG Found component: https via type: org.apache.camel.component.http.HttpComponent via: META-INF/services/org/apache/camel/component/https
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=components,name="https"
+DEBUG Creating endpoint uri=[https://www.googleapis.com/customsearch/v1?cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs&q=header%7Bsearch_term%7D], path=[www.googleapis.com/customsearch/v1]
+DEBUG https://www.googleapis.com/customsearch/v1?cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs&q=header%7Bsearch_term%7D converted to endpoint: Endpoint[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs] by component: org.apache.camel.component.http.HttpComponent@1df1bffd
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=endpoints,name="https://www.googleapis.com/customsearch/v1"
+DEBUG Initialize channel for target: 'To[https://www.googleapis.com/customsearch/v1?q=header{search_term}&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs&cx=006692447265618499542:oqtlr1xtrve]'
+DEBUG Initialize channel for target: 'ConvertBodyTo[java.lang.String]'
+DEBUG Initialize channel for target: 'Unmarshal[org.apache.camel.model.dataformat.XmlJsonDataFormat@3d0db4fa]'
+DEBUG Initialize channel for target: 'SetHeader[link, xpath{XPath: //link}]'
+DEBUG Initialize channel for target: 'SetHeader[title, xpath{XPath: //htmlTitle}]'
+DEBUG Initialize channel for target: 'SetHeader[snippet, xpath{XPath: //htmlSnippet}]'
+DEBUG Initialize channel for target: 'SetBody[{}]'
+DEBUG Initialize channel for target: 'Split[xpath{XPath: //o/items/e} -> [SetHeader[link, xpath{XPath: //link}], SetHeader[title, xpath{XPath: //htmlTitle}], SetHeader[snippet, xpath{XPath: //htmlSnippet}], SetBody[{}]]]'
+DEBUG Initialize channel for target: 'ConvertBodyTo[java.lang.String]'
+DEBUG Initialize channel for target: 'SetBody[simple{Simple: Search results for '<b>linux</b>':<p/> ${body}: <p/>}]'
+DEBUG Using ComponentResolver: org.apache.camel.impl.DefaultComponentResolver@c9d8918 to resolve component with name: file
+DEBUG Found component: file in registry: null
+DEBUG Found component: file via type: org.apache.camel.component.file.FileComponent via: META-INF/services/org/apache/camel/component/file
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=components,name="file"
+DEBUG Creating endpoint uri=[file:///tmp/out?fileName=search_linux.html], path=[/tmp/out]
+DEBUG Configured property: fileName on bean: Endpoint[file:///tmp/out?fileName=search_linux.html] with value: search_linux.html
+DEBUG file:///tmp/out?fileName=search_linux.html converted to endpoint: Endpoint[file:///tmp/out?fileName=search_linux.html] by component: org.apache.camel.component.file.FileComponent@4537d1f5
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=endpoints,name="file:///tmp/out\?fileName=search_linux.html"
+DEBUG Initialize channel for target: 'To[file:/tmp/out?fileName=search_linux.html]'
+DEBUG Initialize channel for target: 'process[net.kevinboone.camelgooglesearch.MainApp$1$1@d794594]'
+INFO  AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+INFO  StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+DEBUG Warming up route id: route1 having autoStartup=true
+DEBUG Starting services on route: route1
+DEBUG Starting child service on route: route1 -> Pipeline[[Channel[setHeader(search_term, android)], Channel[setHeader(CamelHttpMethod, GET)], Channel[Log(route1)[XXX]], Channel[Log(route1)[body]], Channel[sendTo(Endpoint[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs])], Channel[convertBodyTo[java.lang.String]], Channel[Unmarshal[org.apache.camel.dataformat.xmljson.XmlJsonDataFormat@554c0af6]], Channel[Splitter[on: XPath: //o/items/e to: Pipeline[[Channel[setHeader(link, XPath: //link)], Channel[setHeader(title, XPath: //htmlTitle)], Channel[setHeader(snippet, XPath: //htmlSnippet)], Channel[SetBody()]]] aggregate: net.kevinboone.camelgooglesearch.Aggregator@7363c839]], Channel[convertBodyTo[java.lang.String]], Channel[SetBody(Simple: Search results for '<b>linux</b>':<p/> ${body}: <p/>)], Channel[sendTo(Endpoint[file:///tmp/out?fileName=search_linux.html])], Channel[DelegateSync[net.kevinboone.camelgooglesearch.MainApp$1$1@d794594]]]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:setHeader[setHeader(search_term, android)]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:setHeader[setHeader(CamelHttpMethod, GET)]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:log[Log(route1)[XXX]]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:log[Log(route1)[body]]]
+DEBUG Starting producer: Producer[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs]
+DEBUG Adding to producer cache with key: Endpoint[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs] for producer: Producer[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:to[sendTo(Endpoint[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs])]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:convertBodyTo[convertBodyTo[java.lang.String]]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:unmarshal[Unmarshal[org.apache.camel.dataformat.xmljson.XmlJsonDataFormat@554c0af6]]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:setHeader[setHeader(link, XPath: //link)]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:setHeader[setHeader(title, XPath: //htmlTitle)]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:setHeader[setHeader(snippet, XPath: //htmlSnippet)]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:setBody[SetBody()]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:split[Splitter[on: XPath: //o/items/e to: Pipeline[[Channel[setHeader(link, XPath: //link)], Channel[setHeader(title, XPath: //htmlTitle)], Channel[setHeader(snippet, XPath: //htmlSnippet)], Channel[SetBody()]]] aggregate: net.kevinboone.camelgooglesearch.Aggregator@7363c839]]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:convertBodyTo[convertBodyTo[java.lang.String]]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:setBody[SetBody(Simple: Search results for '<b>linux</b>':<p/> ${body}: <p/>)]]
+DEBUG Starting producer: Producer[file:///tmp/out?fileName=search_linux.html]
+DEBUG Adding to producer cache with key: Endpoint[file:///tmp/out?fileName=search_linux.html] for producer: Producer[file:///tmp/out?fileName=search_linux.html]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:to[sendTo(Endpoint[file:///tmp/out?fileName=search_linux.html])]]
+DEBUG Redelivery enabled: false on error handler: DefaultErrorHandler[Instrumentation:process[DelegateSync[net.kevinboone.camelgooglesearch.MainApp$1$1@d794594]]]
+DEBUG Starting child service on route: route1 -> Pipeline[[Channel[setHeader(search_term, android)], Channel[setHeader(CamelHttpMethod, GET)], Channel[Log(route1)[XXX]], Channel[Log(route1)[body]], Channel[sendTo(Endpoint[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs])], Channel[convertBodyTo[java.lang.String]], Channel[Unmarshal[org.apache.camel.dataformat.xmljson.XmlJsonDataFormat@554c0af6]], Channel[Splitter[on: XPath: //o/items/e to: Pipeline[[Channel[setHeader(link, XPath: //link)], Channel[setHeader(title, XPath: //htmlTitle)], Channel[setHeader(snippet, XPath: //htmlSnippet)], Channel[SetBody()]]] aggregate: net.kevinboone.camelgooglesearch.Aggregator@7363c839]], Channel[convertBodyTo[java.lang.String]], Channel[SetBody(Simple: Search results for '<b>linux</b>':<p/> ${body}: <p/>)], Channel[sendTo(Endpoint[file:///tmp/out?fileName=search_linux.html])], Channel[DelegateSync[net.kevinboone.camelgooglesearch.MainApp$1$1@d794594]]]]
+DEBUG Starting child service on route: route1 -> Channel[setHeader(search_term, android)]
+DEBUG Starting child service on route: route1 -> Channel[setHeader(CamelHttpMethod, GET)]
+DEBUG Starting child service on route: route1 -> Log(route1)[XXX]
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="log1"
+DEBUG Starting child service on route: route1 -> Channel[Log(route1)[XXX]]
+DEBUG Starting child service on route: route1 -> Log(route1)[body]
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="log2"
+DEBUG Starting child service on route: route1 -> Channel[Log(route1)[body]]
+DEBUG Starting child service on route: route1 -> sendTo(Endpoint[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs])
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="to1"
+DEBUG Starting child service on route: route1 -> Channel[sendTo(Endpoint[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs])]
+DEBUG Starting child service on route: route1 -> convertBodyTo[java.lang.String]
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="convertBodyTo1"
+DEBUG Starting child service on route: route1 -> Channel[convertBodyTo[java.lang.String]]
+DEBUG Starting child service on route: route1 -> Unmarshal[org.apache.camel.dataformat.xmljson.XmlJsonDataFormat@554c0af6]
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="unmarshal1"
+DEBUG Starting child service on route: route1 -> Channel[Unmarshal[org.apache.camel.dataformat.xmljson.XmlJsonDataFormat@554c0af6]]
+DEBUG Starting child service on route: route1 -> Splitter[on: XPath: //o/items/e to: Pipeline[[Channel[setHeader(link, XPath: //link)], Channel[setHeader(title, XPath: //htmlTitle)], Channel[setHeader(snippet, XPath: //htmlSnippet)], Channel[SetBody()]]] aggregate: net.kevinboone.camelgooglesearch.Aggregator@7363c839]
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="split1"
+DEBUG Starting child service on route: route1 -> Channel[Splitter[on: XPath: //o/items/e to: Pipeline[[Channel[setHeader(link, XPath: //link)], Channel[setHeader(title, XPath: //htmlTitle)], Channel[setHeader(snippet, XPath: //htmlSnippet)], Channel[SetBody()]]] aggregate: net.kevinboone.camelgooglesearch.Aggregator@7363c839]]
+DEBUG Starting child service on route: route1 -> Pipeline[[Channel[setHeader(link, XPath: //link)], Channel[setHeader(title, XPath: //htmlTitle)], Channel[setHeader(snippet, XPath: //htmlSnippet)], Channel[SetBody()]]]
+DEBUG Starting child service on route: route1 -> Channel[setHeader(link, XPath: //link)]
+DEBUG Starting child service on route: route1 -> Channel[setHeader(title, XPath: //htmlTitle)]
+DEBUG Starting child service on route: route1 -> Channel[setHeader(snippet, XPath: //htmlSnippet)]
+DEBUG Starting child service on route: route1 -> SetBody()
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="setBody1"
+DEBUG Starting child service on route: route1 -> Channel[SetBody()]
+DEBUG Starting child service on route: route1 -> convertBodyTo[java.lang.String]
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="convertBodyTo2"
+DEBUG Starting child service on route: route1 -> Channel[convertBodyTo[java.lang.String]]
+DEBUG Starting child service on route: route1 -> SetBody(Simple: Search results for '<b>linux</b>':<p/> ${body}: <p/>)
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="setBody2"
+DEBUG Starting child service on route: route1 -> Channel[SetBody(Simple: Search results for '<b>linux</b>':<p/> ${body}: <p/>)]
+DEBUG Starting child service on route: route1 -> sendTo(Endpoint[file:///tmp/out?fileName=search_linux.html])
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="to2"
+DEBUG Starting child service on route: route1 -> Channel[sendTo(Endpoint[file:///tmp/out?fileName=search_linux.html])]
+DEBUG Starting child service on route: route1 -> DelegateSync[net.kevinboone.camelgooglesearch.MainApp$1$1@d794594]
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=processors,name="process1"
+DEBUG Starting child service on route: route1 -> Channel[DelegateSync[net.kevinboone.camelgooglesearch.MainApp$1$1@d794594]]
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=routes,name="route1"
+DEBUG Added TimerListener: org.apache.camel.management.mbean.ManagedSuspendableRoute@38282baf
+DEBUG Route: route1 >>> EventDrivenConsumerRoute[Endpoint[direct://start] -> Pipeline[[Channel[setHeader(search_term, android)], Channel[setHeader(CamelHttpMethod, GET)], Channel[Log(route1)[XXX]], Channel[Log(route1)[body]], Channel[sendTo(Endpoint[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs])], Channel[convertBodyTo[java.lang.String]], Channel[Unmarshal[org.apache.camel.dataformat.xmljson.XmlJsonDataFormat@554c0af6]], Channel[Splitter[on: XPath: //o/items/e to: Pipeline[[Channel[setHeader(link, XPath: //link)], Channel[setHeader(title, XPath: //htmlTitle)], Channel[setHeader(snippet, XPath: //htmlSnippet)], Channel[SetBody()]]] aggregate: net.kevinboone.camelgooglesearch.Aggregator@7363c839]], Channel[convertBodyTo[java.lang.String]], Channel[SetBody(Simple: Search results for '<b>linux</b>':<p/> ${body}: <p/>)], Channel[sendTo(Endpoint[file:///tmp/out?fileName=search_linux.html])], Channel[DelegateSync[net.kevinboone.camelgooglesearch.MainApp$1$1@d794594]]]]]
+DEBUG Starting consumer (order: 1000) on route: route1
+DEBUG Registered MBean with ObjectName: org.apache.camel:context=camel-1,type=consumers,name=DirectConsumer(0x5f79d27c)
+INFO  Route: route1 started and consuming from: Endpoint[direct://start]
+DEBUG Load performance statistics disabled
+INFO  Total 1 routes, of which 1 is started.
+INFO  Apache Camel 2.13.0 (CamelContext: camel-1) started in 0.620 seconds
+DEBUG Starting producer: Producer[direct://start]
+DEBUG Adding to producer cache with key: Endpoint[direct://start] for producer: Producer[direct://start]
+DEBUG >>>> Endpoint[direct://start] Exchange[Message: android]
+DEBUG >>>> Endpoint[https://www.googleapis.com/customsearch/v1?q=header%7Bsearch_term%7D&cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs] Exchange[Message: android]
+DEBUG Promoting fallback type converter as a known type converter to convert from: org.apache.camel.component.http.HttpMethods to: java.lang.String for the fallback converter: org.apache.camel.impl.converter.EnumTypeConverter@5f1b6254
+DEBUG Executing http GET method: https://www.googleapis.com/customsearch/v1?cx=006692447265618499542%3Aoqtlr1xtrve&key=AIzaSyCktHDxLbEU7h4KIEemXAPBuUgGvNzmyTs&q=header%7Bsearch_term%7D
+DEBUG Http responseCode: 200
+INFO  Created default XPathFactory org.apache.xpath.jaxp.XPathFactoryImpl@264348eb
+DEBUG Done sequential processing 0 exchanges
+DEBUG >>>> Endpoint[file:///tmp/out?fileName=search_linux.html] Exchange[Message: Search results for '<b>linux</b>':<p/> <?xml version="1.0" encoding="UTF-8"?>
+<o><kind>customsearch#search</kind><queries><request><e><count>10</count><cx>006692447265618499542:oqtlr1xtrve</cx><inputEncoding>utf8</inputEncoding><outputEncoding>utf8</outputEncoding><safe>off</safe><searchTerms>header{search_term}</searchTerms><title>Google Custom Search - header{search_term}</title><totalResults>0</totalResults></e></request></queries><searchInformation><formattedSearchTime>0.40</formattedSearchTime><formattedTotalResults>0</formattedTotalResults><searchTime>0.401713</searchTime><totalResults>0</totalResults></searchInformation><url><template>https://www.googleapis.com/customsearch/v1?q={searchTerms}&amp;num={count?}&amp;start={startIndex?}&amp;lr={language?}&amp;safe={safe?}&amp;cx={cx?}&amp;cref={cref?}&amp;sort={sort?}&amp;filter={filter?}&amp;gl={gl?}&amp;cr={cr?}&amp;googlehost={googleHost?}&amp;c2coff={disableCnTwTranslation?}&amp;hq={hq?}&amp;hl={hl?}&amp;siteSearch={siteSearch?... [Body clipped after 1000 chars, total length is 1533]]
+DEBUG Using InputStream to write file: /tmp/out/search_linux.html
+DEBUG Wrote [/tmp/out/search_linux.html] to [Endpoint[file:///tmp/out?fileName=search_linux.html]]
